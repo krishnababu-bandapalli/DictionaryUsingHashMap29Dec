@@ -5,6 +5,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 
 public class BuildUIUX {
     Pane pane = new Pane();
@@ -24,6 +25,7 @@ public class BuildUIUX {
 
         // Search TextField
         TextField searchTextField = new TextField();
+        searchTextField.setFont(new Font("Times New Roman",12));
         searchTextField.setLayoutX(182.5);
         searchTextField.setTranslateY(10);
         searchTextField.setMaxWidth(150);
