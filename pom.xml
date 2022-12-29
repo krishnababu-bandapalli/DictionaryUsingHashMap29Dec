@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.dictiinaryusinghashmap29dec/com.example.dictiinaryusinghashmap29dec.Dictionary
+                                com.example.dictiinaryusinghashmap29dec/com.example.dictiinaryusinghashmap29dec.DictionaryApp
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

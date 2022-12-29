@@ -1,35 +1,34 @@
 package com.example.dictiinaryusinghashmap29dec;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
+import java.util.Map;
+import java.util.TreeMap;
 
-import java.io.IOException;
-
-public class Dictionary extends Application {
-    BuildUIUX buildUIUX = new BuildUIUX();
-    BorderPane createContent() {
-        BorderPane root = new BorderPane();
-
-        root.setTop(buildUIUX.setSearchBar());
-        return root;
-    }
-    @Override
-    public void start(Stage stage) throws IOException {
-        Scene scene = new Scene(createContent(),600,400);
-        stage.setTitle("Dictionary Book");
-        stage.setScene(scene);
-        Image image = new Image("C:\\Users\\krish_uv7qyqm\\IdeaProjects\\DictiinaryUsingHashMap29Dec\\src\\main\\DictionaryIcon.png");
-        stage.getIcons().add(image);
-        stage.getIcons();
-        stage.setMaxHeight(415);
-        stage.setMaxWidth(615);
-        stage.show();
+public class Dictionary {
+    Map<String, String> dictionary = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+    public Dictionary() {
+        this.dictionary = dictionary;
+        addWordsList();
     }
 
-    public static void main(String[] args) {
-        launch();
+    private void addWordsList() {
+        addWord("English", "English is a Language");
+        addWord("Dictionary","a book or electronic resource that lists the words of a language (typically in alphabetical order) and gives their meaning, or gives the equivalent words in a different language, often also providing information about pronunciation, origin, and usage.");
+        addWord("Java", "Java is a widely used object-oriented programming language and software platform that runs on billions of devices, including notebook computers, mobile devices, gaming consoles, medical devices and many others");
+    }
+
+    void addWord(String word, String meaning) {
+        try {
+            dictionary.put(word, meaning);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    String getMeaning(String word) {
+        if (dictionary.containsKey(word)) return dictionary.get(word);
+
+        else return "The meaning of  " + "' " + word + " '" + "  is not exist in Dictionary";
+    }
+    boolean wordExist(String word) {
+        return dictionary.containsKey(word);
     }
 }
